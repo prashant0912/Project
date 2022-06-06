@@ -39,7 +39,21 @@ const mobile = new mongoose.model("mobile",mobileSchema)
       return res.status(401).send({ message: err.message });
     }
   });
- 
+
+ app.get("/mobile/:sort",async(req,res)=>{
+   if(req.params.sort == "asc"){
+    var sort = await mobile.find({}).select({}).sort({"Price":1});
+    res.send(sort)
+     }
+    else if(req.params.sort == "dsc"){
+      var sort = await mobile.find({}).select({}).sort({"Price":-1});
+      res.send(sort)
+    }
+    
+    }
+   )
+  
+
   
   app.listen(port, async () => {
       try {
@@ -48,6 +62,6 @@ const mobile = new mongoose.model("mobile",mobileSchema)
       } catch (error) {
         console.log(error);
       }
-    });
+    })
   
   

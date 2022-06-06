@@ -1,13 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
-import {Phonedata} from "./components/phonewithdata"
+import {useNavigate} from "react-router";
+import {Routes,Route} from "react-router";
+import {Phonedata} from "./components/phonedata"
 
 function App(){
-  
-  
   return (
     <div className = "App">
-      <Phonedata/>
+     <Routes>
+       <Route path = "/" element = { <Phonedata/>}></Route>
+     </Routes>
       </div>
       
     
